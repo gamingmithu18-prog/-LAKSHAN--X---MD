@@ -1,16 +1,26 @@
 name: Unzip Bot
 on: [push]
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           unzip -o LAKSHAN_X_MD_BASE.zip -d temp
-          mv temp/*/* . 2>/dev/null || mv temp/* . 2>/dev/null || true
+          shopt -s dotglob nullglob
+          if [ -d temp/LAKSHAN_X_MD_BASE ]; then
+            mv temp/LAKSHAN_X_MD_BASE/* . 
+            mv temp/LAKSHAN_X_MD_BASE/.* . 2>/dev/null || true
+          else
+            mv temp/*/* . 2>/dev/null || mv temp/* . 2>/dev/null || true
+          fi
           rm -rf temp LAKSHAN_X_MD_BASE.zip
-          git config --global user.email "bot@bot.com"
-          git config --global user.name "bot"
+          git config user.email "bot@bot.com"
+          git config user.name "bot"
           git add .
-          git commit -m "unzipped" || true
+          git commit -m "unzipped bot files" || true
           git push
