@@ -1,0 +1,10 @@
+node_modules/
+.env
+data/sessions/
+*.log
+npm-debug.log*
+.DS_Store
+tmp/
+
+# keep the empty data folder
+!data/.gitkeep

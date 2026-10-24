@@ -1,0 +1,146 @@
+{
+  "name": "𝐋𝐀𝐊𝐒𝐇𝐀𝐍 𝐗 𝐌𝐃",
+  "description": "𝐋𝐀𝐊𝐒𝐇𝐀𝐍 𝐗 𝐌𝐃 - Ultra fast modern multi-device WhatsApp bot with 338+ commands, GitHub/MongoDB storage and a neon-purple web pairing dashboard. Powerd by Lakshan X MD.",
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "baileys",
+    "nodejs",
+    "lakshan-x-md",
+    "github-database"
+  ],
+  "website": "https://ghost-mini.sasatech.online/",
+  "success_url": "/",
+  "stack": "heroku-24",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": {
+      "description": "MongoDB Atlas connection string. Set this as a private Heroku config variable.",
+      "value": "",
+      "required": true
+    },
+    "MONGODB_DB": {
+      "description": "MongoDB database name.",
+      "value": "ghost-mini-ofc",
+      "required": false
+    },
+    "GITHUB_TOKEN": {
+      "description": "GitHub Personal Access Token with 'repo' scope. This is where all bot data is stored.",
+      "value": "",
+      "required": true
+    },
+    "GITHUB_OWNER": {
+      "description": "Your GitHub username.",
+      "value": "darksasa1-eng"
+    },
+    "GITHUB_REPO": {
+      "description": "Repository used as the database.",
+      "value": "ghost-mini-ofc"
+    },
+    "GITHUB_BRANCH": {
+      "description": "Branch to commit data to. Leave blank for the repo default.",
+      "value": "",
+      "required": false
+    },
+    "GITHUB_DB_DIR": {
+      "description": "Folder inside the repo for the JSON files.",
+      "value": "database"
+    },
+    "GROQ_API_KEY": {
+      "description": "Groq API key that powers the .support AI assistant. Get one free at console.groq.com. Leave blank to disable AI support (.support still returns raw diagnostics).",
+      "value": "",
+      "required": false
+    },
+    "GROQ_MODEL": {
+      "description": "Optional Groq model override. Leave blank to auto-select a working model (Groq retires models regularly).",
+      "value": "",
+      "required": false
+    },
+    "WA_VERSION": {
+      "description": "Optional WhatsApp Web build override, e.g. 2.3000.1042466098. Leave blank for automatic detection. Only set this if device linking breaks.",
+      "value": "",
+      "required": false
+    },
+    "OWNER_NUMBERS": {
+      "description": "Owner numbers separated by commas, with country code and no plus sign.",
+      "value": "94741448572"
+    },
+    "OWNER_NAME": {
+      "description": "Bot owner display name.",
+      "value": "Lakshan"
+    },
+    "BOT_NAME": {
+      "description": "Bot display name.",
+      "value": "𝐋𝐀𝐊𝐒𝐇𝐀𝐍 𝐗 𝐌𝐃"
+    },
+    "PREFIX": {
+      "description": "Main command prefix.",
+      "value": "."
+    },
+    "MODE": {
+      "description": "public or private.",
+      "value": "public"
+    },
+    "API_KEY": {
+      "description": "SASA TECH API key.",
+      "value": "d1940d8dd12e82465afd61c8fdc7fbf0"
+    },
+    "API_BASE": {
+      "description": "SASA TECH API base URL.",
+      "value": "https://api.sasatech.online"
+    },
+    "LOGO": {
+      "description": "Bot logo image URL.",
+      "value": "https://i.ibb.co/gM3L9pPS/186615.png"
+    },
+    "SUPPORT_CHANNEL": {
+      "description": "WhatsApp support channel link.",
+      "value": "https://whatsapp.com/channel/0029Vb86hKVJUM2SYD2qNw3K"
+    },
+    "CHANNEL_JID": {
+      "description": "Newsletter JID for auto follow and branding.",
+      "value": "120363411700026624@newsletter"
+    },
+    "AUTO_FOLLOW_CHANNEL": {
+      "description": "Auto follow the support channel on connect.",
+      "value": "true"
+    },
+    "AUTO_READ_STATUS": {
+      "description": "Automatically view contact statuses.",
+      "value": "true"
+    },
+    "AUTO_LIKE_STATUS": {
+      "description": "Automatically react to statuses.",
+      "value": "true"
+    },
+    "ANTI_DELETE": {
+      "description": "Recover deleted messages.",
+      "value": "true"
+    },
+    "ANTI_CALL": {
+      "description": "Auto reject incoming calls.",
+      "value": "true"
+    },
+    "ALWAYS_ONLINE": {
+      "description": "Keep presence online.",
+      "value": "true"
+    },
+    "TZ": {
+      "description": "Timezone.",
+      "value": "Asia/Colombo"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
