@@ -1,0 +1,16 @@
+name: Unzip Bot
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          unzip -o LAKSHAN_X_MD_BASE.zip -d temp
+          mv temp/*/* . 2>/dev/null || mv temp/* . 2>/dev/null || true
+          rm -rf temp LAKSHAN_X_MD_BASE.zip
+          git config --global user.email "bot@bot.com"
+          git config --global user.name "bot"
+          git add .
+          git commit -m "unzipped" || true
+          git push
